@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Развертывание Java-приложения через Docker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #2ecc71;
+            color: white;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        pre {
+            background: #2d3436;
+            color: #00d9ff;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Java-приложение развернуто через Docker</h1>
+    <p>Статус развертывания: <span class="status-badge">✅ Готово к работе</span></p>
+    <p>Приложение запущено в изолированной среде с помощью Docker. Контейнеризация обеспечивает воспроизводимость
+        окружения и упрощает доставку в production.</p>
+
+    <h3>Краткая схема запуска</h3>
+    <pre>
+# Сборка образа
+docker build -t java-app .
+
+# Запуск контейнера
+docker run -p 8080:8080 java-app
+      </pre>
+
+    <h3>Пример Dockerfile для Java-приложения</h3>
+    <pre>
+FROM eclipse-temurin:17-jre-alpine
+WORKDIR /app
+COPY target/my-app.jar app.jar
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "app.jar"]
+      </pre>
+
+    <p><em>Страница создана для наглядной проверки успешного развертывания — можно разместить на внутреннем портале
+        команды или использовать как заглушку.</em></p>
+</div>
+</body>
+</html>
