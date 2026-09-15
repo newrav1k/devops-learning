@@ -1,0 +1,7 @@
+services:
+  web-service:
+    container_name: java-web-service
+    build: ../web-service
+    restart: always
+    ports:
+      - "8090:8090"
